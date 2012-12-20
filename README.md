@@ -15,8 +15,8 @@ Running the server
 The server is distributed as a maven pom.xml file, and you must have Apache Maven installed to use it. The first time you run it, maven will download all the server components, as well as other libraries, from Maven Central (or from the Sonatype snapshot repository if you are running a snapshot version). This can take some time the first time you start the server.
 
 Before you run the server, note that it runs in two different modes:
-- in bootstrap mode, only the "default" broker is active, and all customers are subscribed to its simple production and consumption tariffs. The bootstrap period is typically 360 timeslots (15 days), and data from the last 14 days is collected and used to "seed" a normal simulation run.
-- in sim mode, competing brokers are allowed to log in. Before the sim starts, the bootstrap dataset is broadcast to all brokers to permit them to seed their models, such as customer usage profiles and wholesale market price models. The simulation then starts at a point in simulated time immediately following the end of the bootstrap period. Many sims can be run with the same bootstrap dataset.
+* in bootstrap mode, only the "default" broker is active, and all customers are subscribed to its simple production and consumption tariffs. The bootstrap period is typically 360 timeslots (15 days), and data from the last 14 days is collected and used to "seed" a normal simulation run.
+* in sim mode, competing brokers are allowed to log in. Before the sim starts, the bootstrap dataset is broadcast to all brokers to permit them to seed their models, such as customer usage profiles and wholesale market price models. The simulation then starts at a point in simulated time immediately following the end of the bootstrap period. Many sims can be run with the same bootstrap dataset.
 
 The server can be run from the command line (the "cli" option), and from the web interface (the "web" option). Both options accept the same input settings, except that the web option does not support the Tournament Manager.
 
@@ -27,27 +27,28 @@ The command line options depend on the type of session you want to run. To run a
 ```
   mvn -Pcli -Dexec.args="--boot bootstrap-data [options]"
 ```
-where ```bootstrap-data``` is the name (not a URL) of the xml file that will be  written with the results of the bootstrap run, ```options``` include:
-- ```--control controller-url``` gives the URL of the Tournament Manager api, from which the server can request a configuration and a log-prefix string.
-- ```--config server-config``` gives the URL (or a filename) of a properties file that overrides the standard server configuration. If this option is missing and the ```--control``` option is given, the server configuration is retrieved from ```controller-url/server-config```.
-- ```--log-suffix suffix``` gives the root name for the log files, and defaults to "boot"; two log files are produced: ```powertac-suffix.trace``` and ```powertac-suffix.state```. If this option is missing and ```--control``` is given, the logfile prefix will be retrieved from ```controller-url/log-suffix```.
+where `bootstrap-data` is the name (not a URL) of the xml file that will be  written with the results of the bootstrap run, `options` include:
+- `--control controller-url` gives the URL of the Tournament Manager api, from which the server can request a configuration and a log-prefix string.
+- `--config server-config` gives the URL (or a filename) of a properties file that overrides the standard server configuration. If this option is missing and the `--control` option is given, the server configuration is retrieved from `controller-url/server-config`.
+- `--log-suffix suffix` gives the root name for the log files, and defaults to "boot"; two log files are produced: `powertac-suffix.trace` and `powertac-suffix.state`. If this option is missing and `--control` is given, the logfile prefix will be retrieved from `controller-url/log-suffix`.
 
 To run the server from the command line in sim mode, the command is
 
 ```
   mvn -Pcli -Dexec.args="--sim [options]"
 ```
-where options include the ```--config```, ```--log-suffix```, and ```--control``` options as in bootstrap mode, as well as
-- ```--boot-data bootstrap-data``` gives the URL (or simply a filename) of the xml file from which a bootstrap record can be read. If this option is missing and the ```--control``` option is given, then the URL for the bootstrap record will be controller-url/bootstrap-data. Note that the server will not start if one of these two sources does not produce a valid bootstrap dataset.
-- ```--jms-url url``` gives the URL of the jms message broker, which is typically, but not necessarily, instantiated inside the server. The default value is ```tcp://localhost:61616``` unless you change it in your server configuration file. If you want to connect to it from another host, you need to use a valid hostname rather than localhost, and the brokers must specify the same URL.
-- ```--brokers broker,...``` is a comma-separated list (no whitespace allowed) of broker usernames that are expected to log in to the simulation before it starts. If this option is missing and ```--control``` is provided, then the broker list will be retrieved from ```controller-url/broker-list```. A broker name can be given as ```username/queue-name```, in which case the broker's input queue will be called ```queue-name```. If the ```queue-name``` is not given, then the broker's input queue name will be the same as its username.
-- ```--input-queue name``` gives the name of the jms input queue for the server. If not given, then the jms input queue is called ```serverInput```.
-- ```--log-suffix suffix``` defaults to "sim" rather than "boot".
+where options include the `--config`, `--log-suffix`, and `--control` options as in bootstrap mode, as well as
+* `--boot-data bootstrap-data` gives the URL (or simply a filename) of the xml file from which a bootstrap record can be read. If this option is missing and the `--control` option is given, then the URL for the bootstrap record will be controller-url/bootstrap-data. Note that the server will not start if one of these two sources does not produce a valid bootstrap dataset.
+* `--random-seeds name` gives the name of a file or URL containing random seed values. Typically this is the state log from a previous game, or just the lines from a state log containing the string "powertac.common.RandomSeed".
+* `--jms-url url` gives the URL of the jms message broker, which is typically, but not necessarily, instantiated inside the server. The default value is `tcp://localhost:61616` unless you change it in your server configuration file. If you want to connect to it from another host, you need to use a valid hostname rather than localhost, and the brokers must specify the same URL.
+* `--brokers broker,...` is a comma-separated list (no whitespace allowed) of broker usernames that are expected to log in to the simulation before it starts. If this option is missing and `--control` is provided, then the broker list will be retrieved from `controller-url/broker-list`. A broker name can be given as `username/queue-name`, in which case the broker's input queue will be called `queue-name`. If the `queue-name` is not given, then the broker's input queue name will be the same as its username.
+* `--input-queue name` gives the name of the jms input queue for the server. If not given, then the jms input queue is called `serverInput`.
+* `--log-suffix suffix` defaults to "sim" rather than "boot".
   
 If you want to override some aspect of server configuration that is
 not directly supported by command-line options, you will need to edit
 the sample server configuration file given in
-```config/server.properties```, and then specify it as the argument to the ```--config``` option.
+`config/server.properties`, and then specify it as the argument to the `--config` option.
 
 To run the server under control of the visualizer, the command is
 simply
@@ -56,7 +57,7 @@ simply
   mvn -Pweb
 ```
 Once it is running (it will print '[INFO] Started Jetty Server'),
-browse to ```http://localhost:8080/visualizer``` and navigate to the
+browse to `http://localhost:8080/visualizer` and navigate to the
 Competition Control page. There you will see a web form that allows
 you to fill in the same options accepted by the cli version. Once a
 sim session is running, the Game Status message will change to
