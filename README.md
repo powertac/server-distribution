@@ -3,7 +3,7 @@ server-distribution
 
 Distribution package for the Power TAC simulation server
 
-Welcome to the 0.6.3 release of the Power TAC server. This is a point release containing the server and a version of the game visualizer that works in "development" mode, including a simple control panel that allows you to set up and run bootstrap and competition sessions. There is a compatible sample broker distributed separately. This release is intended to support broker development and simple experiments.
+Welcome to the current 1.0.0-snapshot of the Power TAC simulation server. This is a reasonably stable development snapshot containing the server and a version of the game visualizer that works in "development" mode, including a simple control panel that allows you to set up and run bootstrap and competition sessions. There is a compatible sample broker distributed separately. This release is intended to support broker development and simple experiments.
 
 Release notes are available at http://www.powertac.org/wiki/index.php/Getting_Started.
 
