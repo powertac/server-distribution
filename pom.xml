@@ -14,7 +14,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.powertac</groupId>
   <artifactId>server-distribution</artifactId>
-  <version>1.1.0</version>
+  <version>1.1.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Power TAC distribution</name>
   <description>Support for download and execution of the Power TAC server</description>
@@ -43,7 +43,7 @@
     <dependency>
       <groupId>org.powertac</groupId>
       <artifactId>server-main</artifactId>
-      <version>1.1.0</version>
+      <version>1.1.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
 
@@ -88,7 +88,7 @@
 	<dependency>
 	  <groupId>org.powertac</groupId>
 	  <artifactId>visualizer</artifactId>
-	  <version>1.1.0</version>
+	  <version>1.1.1-SNAPSHOT</version>
 	  <type>war</type>
 	</dependency>
 	<dependency>
@@ -128,7 +128,7 @@
                     <artifactItem>
                       <groupId>org.powertac</groupId>
                       <artifactId>visualizer</artifactId>
-                      <version>1.1.0</version>
+                      <version>1.1.1-SNAPSHOT</version>
                       <type>war</type>
                       <overWrite>true</overWrite>
                     </artifactItem>
