@@ -14,7 +14,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.powertac</groupId>
   <artifactId>server-distribution</artifactId>
-  <version>1.2.1</version>
+  <version>1.2.2</version>
   <packaging>pom</packaging>
   <name>Power TAC distribution</name>
   <description>Support for download and execution of the Power TAC server</description>
@@ -23,7 +23,7 @@
   <parent>
   	<groupId>org.powertac</groupId>
   	<artifactId>server-master</artifactId>
-  	<version>1.2.0</version>
+  	<version>1.2.2</version>
   	<relativePath/>
   </parent>
   
@@ -43,7 +43,7 @@
     <dependency>
       <groupId>org.powertac</groupId>
       <artifactId>server-main</artifactId>
-      <version>1.2.1</version>
+      <version>1.2.2</version>
     </dependency>
   </dependencies>
 
@@ -88,13 +88,13 @@
 	<dependency>
 	  <groupId>org.powertac</groupId>
 	  <artifactId>visualizer</artifactId>
-	  <version>1.2.1</version>
+	  <version>1.2.2</version>
 	  <type>war</type>
 	</dependency>
 	<dependency>
 	  <groupId>org.powertac</groupId>
 	  <artifactId>webapp-dependencies</artifactId>
-	  <version>1.2.0</version>
+	  <version>1.2.2</version>
 	  <type>pom</type>
 	</dependency>
 	<!-- <dependency>
@@ -128,7 +128,7 @@
                     <artifactItem>
                       <groupId>org.powertac</groupId>
                       <artifactId>visualizer</artifactId>
-                      <version>1.2.1</version>
+                      <version>1.2.2</version>
                       <type>war</type>
                       <overWrite>true</overWrite>
                     </artifactItem>
