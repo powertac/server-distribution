@@ -79,4 +79,4 @@ If you believe you have found a bug and can describe it with some degree of accu
 
 Please let us know what you think of the Power TAC system, and how we can improve our software and processes.
 
-John Collins, Wolf Ketter, and the Power TAC development team: Jurica Babic, Antonios Chrysopoulos, Mathijs de Weerdt, Josh Edeen, Ryan Finneman, Nguyen Nguyen, Erik Onarheim, Shashank Pande, Markus Peters, Vedran Podobnik, Kailash Ramanathan, Prashant Reddy, Andreas Symeonidis, and Konstantina Valogianni
+John Collins, Wolf Ketter, and the Power TAC development team: Jurica Babic, Govert Buijs, Antonios Chrysopoulos, Mathijs de Weerdt, Josh Edeen, Ryan Finneman, Erik Kemperman, Nguyen Nguyen, Erik Onarheim, Shashank Pande, Markus Peters, Vedran Podobnik, Kailash Ramanathan, Prashant Reddy, Andreas Symeonidis, and Konstantina Valogianni
