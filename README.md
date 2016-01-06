@@ -3,9 +3,9 @@ server-distribution
 
 Distribution package for the Power TAC simulation server
 
-Welcome to the current 1.2.0-SNAPSHOT version of the Power TAC simulation server. This is a reasonably stable development snapshot containing the server and a version of the game visualizer that works in "development" mode, including a simple control panel that allows you to set up and run bootstrap and competition sessions. There is a compatible sample broker distributed separately. This release is intended to support broker development and simple experiments.
+Welcome to the current 1.3.1-SNAPSHOT version of the Power TAC simulation server. This is a reasonably stable development snapshot containing the server and a version of the game visualizer that works in "development" mode, including a simple control panel that allows you to set up and run bootstrap and competition sessions. There is a compatible sample broker distributed separately. This release is intended to support broker development and simple experiments.
 
-Release notes are available at http://www.powertac.org/wiki/index.php/Getting_Started.
+This version requires an installation of the Java jdk 1.8. A jre installation will not work. Release notes are available at http://www.powertac.org/wiki/index.php/Getting_Started.
 
 Javadocs are available at http://tac04.cs.umn.edu:8080/job/powertac-server/ws/target/site/api/html/index.html.
 
