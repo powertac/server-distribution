@@ -3,5 +3,5 @@ common.competition.expectedTimeslotCount = 350
 #server.visualizerProxyService.remoteVisualizer = true
 #server.visualizerProxyService.visualizerQueueName = remote-visualizer
 server.competitionControlService.loginTimeout = 30000
-#factoredcustomer.factoredCustomerService.allocationDetailsLogging = true
+#factoredcustomer.config.allocationDetailsLogging = true
 genco.cpGenco.coefficients = 0.006, 0.02, 14.0
