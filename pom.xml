@@ -172,6 +172,79 @@
         </plugins>
       </build>
     </profile>
+
+    <!-- Web visualizer2 setup -->
+    <profile>
+      <id>web2</id>
+      <dependencies>
+        <dependency>
+          <groupId>org.powertac</groupId>
+          <artifactId>visualizer2</artifactId>
+          <version>${powertac.version}</version>
+          <type>war</type>
+        </dependency>
+      </dependencies>
+
+      <build>
+        <finalName>run-web2</finalName>
+        <defaultGoal>package jetty:run</defaultGoal>
+        <plugins>
+
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <version>2.10</version>
+            <executions>
+              <execution>
+                <id>unpack-war</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>unpack</goal>
+                </goals>
+                <configuration>
+                  <systemProperties>
+                    <systemProperty>
+                      <name>server.pomId</name>
+                      <value>${project.version}</value>
+                    </systemProperty>
+                  </systemProperties>
+                  <outputDirectory>
+                    ${project.build.directory}/visualizer2
+                  </outputDirectory>
+                  <overWriteSnapshots>true</overWriteSnapshots>
+                  <artifactItems>
+                    <artifactItem>
+                      <groupId>org.powertac</groupId>
+                      <artifactId>visualizer2</artifactId>
+                      <version>${powertac.version}</version>
+                      <type>war</type>
+                      <overWrite>true</overWrite>
+                    </artifactItem>
+                  </artifactItems>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+
+          <plugin>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-maven-plugin</artifactId>
+            <version>9.3.9.M1</version>
+            <configuration>
+              <webApp>
+                <contextPath>/visualizer</contextPath>
+              </webApp>
+              <classesDirectory>
+                ${project.build.directory}/visualizer2/WEB-INF/classes
+              </classesDirectory>
+              <webAppSourceDirectory>
+                ${project.build.directory}/visualizer2
+              </webAppSourceDirectory>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
   </profiles>
 
 </project>
