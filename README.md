@@ -37,7 +37,7 @@ where `bootstrap-data` is the name (not a URL) of the xml file that will be  wri
 To run the server from the command line in sim mode, the command is
 
 ```
-  mvn -Pcli -Dexec.args="--sim [options]"
+  mvn -Pcli -Dexec.args="--sim --boot-data bootname [options]"
 ```
 where options include the `--config`, `--game-id`, `--log-suffix`, and `--control` options as in bootstrap mode, as well as
 * `--boot-data bootstrap-data` gives the URL (or simply a filename) of the xml file from which a bootstrap record can be read. If this option is missing and the `--control` is a URL. If given, it provides a prefix for the URL of the bootstrap record, which will be `control-url/bootstrap-data`. Note that the server will not start if one of these two sources does not produce a valid bootstrap dataset.
