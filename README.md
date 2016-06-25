@@ -68,6 +68,14 @@ sim session is running, the Game Status message will change to
 not necessary to shut down the web server (which you do by aborting
 the maven process with Control-C) between sessions.
 
+To run the server under control of the new visualizer2, the command is
+
+
+```
+  mvn -Pweb2
+```
+TODO
+
 Access to code resources
 ------------------------
 
