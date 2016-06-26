@@ -3,7 +3,7 @@ server-distribution
 
 Distribution package for the Power TAC simulation server
 
-Welcome to the current 1.3.3-SNAPSHOT version of the Power TAC simulation server. This is a reasonably stable development snapshot containing the server and a version of the game visualizer that works in "development" mode, including a simple control panel that allows you to set up and run bootstrap and competition sessions. There is a compatible sample broker distributed separately. This release is intended to support broker development and simple experiments.
+Welcome to the current 1.3.3 version of the Power TAC simulation server. This is a reasonably stable development snapshot containing the server and a version of the game visualizer that works in "development" mode, including a simple control panel that allows you to set up and run bootstrap and competition sessions. There is a compatible sample broker distributed separately. This release is intended to support broker development and simple experiments.
 
 This version requires an installation of the Java jdk 1.8. A jre installation will not work. Release notes are available at http://www.powertac.org/wiki/index.php/Getting_Started.
 
@@ -67,6 +67,14 @@ sim session is running, the Game Status message will change to
 "Running", and you can then navigate to the Game View. Note that it is
 not necessary to shut down the web server (which you do by aborting
 the maven process with Control-C) between sessions.
+
+To run the server under control of the new visualizer2, the command is
+
+
+```
+  mvn -Pweb2
+```
+TODO
 
 Access to code resources
 ------------------------
