@@ -45,14 +45,6 @@
     </repository>
   </repositories>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.powertac</groupId>
-      <artifactId>server-main</artifactId>
-      <version>${powertac.version}</version>
-    </dependency>
-  </dependencies>
-
   <!-- TODO This resources block doesn't seem to do anything? -->
   <build>
     <resources>
@@ -67,7 +59,13 @@
     <!-- Command-line setup -->
     <profile>
       <id>cli</id>
-
+      <dependencies>
+        <dependency>
+          <groupId>org.powertac</groupId>
+          <artifactId>server-main</artifactId>
+          <version>${powertac.version}</version>
+        </dependency>
+      </dependencies>
       <build>
         <finalName>run-cli</finalName>
         <defaultGoal>exec:exec</defaultGoal>
@@ -101,6 +99,11 @@
     <profile>
       <id>web</id>
       <dependencies>
+        <dependency>
+          <groupId>org.powertac</groupId>
+          <artifactId>server-main</artifactId>
+          <version>${powertac.version}</version>
+        </dependency>
         <dependency>
           <groupId>org.powertac</groupId>
           <artifactId>visualizer</artifactId>
@@ -198,7 +201,6 @@
         <finalName>run-web2</finalName>
         <defaultGoal>package exec:exec</defaultGoal>
         <plugins>
-
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-dependency-plugin</artifactId>
