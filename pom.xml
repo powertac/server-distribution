@@ -142,7 +142,7 @@
                   <systemProperties>
                     <systemProperty>
                       <name>server.pomId</name>
-                      <value>${project.version}</value>
+                      <value>${project.parent.version}</value>
                     </systemProperty>
                   </systemProperties>
                   <outputDirectory>
@@ -213,12 +213,6 @@
                   <goal>copy</goal>
                 </goals>
                 <configuration>
-                  <systemProperties>
-                    <systemProperty>
-                      <name>server.pomId</name>
-                      <value>${project.version}</value>
-                    </systemProperty>
-                  </systemProperties>
                   <outputDirectory>
                     ${project.build.directory}/visualizer2
                   </outputDirectory>
@@ -245,7 +239,7 @@
             <version>${maven-exec.version}</version>
             <configuration>
               <executable>java</executable>
-              <commandlineArgs>-jar ${project.build.directory}/visualizer2/visualizer2-${powertac.version}.war</commandlineArgs>
+              <commandlineArgs>-Dserver.pomId=${project.parent.version} -jar ${project.build.directory}/visualizer2/visualizer2-${powertac.version}.war</commandlineArgs>
             </configuration>
           </plugin>
         </plugins>
