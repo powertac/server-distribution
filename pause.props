@@ -1,0 +1,7 @@
+common.competition.minimumTimeslotCount = 90
+common.competition.expectedTimeslotCount = 100
+#server.visualizerProxyService.remoteVisualizer = true
+#server.visualizerProxyService.visualizerQueueName = remote-visualizer
+server.competitionControlService.loginTimeout = 20000
+server.competitionControlService.brokerPauseAllowed = true
+#factoredcustomer.factoredCustomerService.allocationDetailsLogging = true
