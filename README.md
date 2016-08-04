@@ -75,6 +75,19 @@ To run the server under control of the new visualizer2, the command is
   mvn -Pweb2
 ```
 
+Please take note of some changes, beyond the visible, when using the -Pweb2 profile.
+
+Out of the box, two accounts are created: `admin` and `user`. The passwords are 
+initially `admin` and `user`, respectively. You may want to change that when
+you're up and running.
+
+In the new visualizer, games are owned by the user who logged in to create/start
+them. To account for this, the log files are now written to user-specific
+directories, e.g. "files/admin/log".
+
+Refer to the README.md of the visualizer2 for more information.
+
+
 Configuration
 -------------
 
