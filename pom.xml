@@ -1,63 +1,49 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
-  <!--
-     Deployment pom for powertac server.
-     Two profiles are included:
-       -Pcli runs a "headless" command-line version. See the README for
-         command-line options.
-       -Pweb runs the server with the visualizer, inside an instance of
-         jetty. Sim options can be controlled through the competition-control
-         interface in the visualizer at localhost:8080/visualizer
-   -->
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
+
   <artifactId>server-distribution</artifactId>
   <packaging>pom</packaging>
+
   <name>Power TAC distribution</name>
   <description>Support for download and execution of the Power TAC server</description>
-  <url>http://www.powertac.org</url>
+  <url>https://github.com/powertac/server-distribution/</url>
 
-  <!-- parent supplies version id for all powertac components -->
   <parent>
     <groupId>org.powertac</groupId>
-    <artifactId>server-master</artifactId>
+    <artifactId>powertac-parent</artifactId>
     <version>1.4.0-SNAPSHOT</version>
-    <relativePath/>
+    <relativePath />
   </parent>
+
 
   <properties>
     <jetty.version>9.3.11.v20160721</jetty.version>
-    <maven-dependency.version>2.10</maven-dependency.version>
-    <maven-exec.version>1.5.0</maven-exec.version>
   </properties>
 
-  <!-- Sonatype OSS repo for resolving snapshot dependencies -->
-  <repositories>
-    <repository>
-      <id>sonatype</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-    </repository>
-    <repository>
-      <id>mvnrepo</id>
-      <url>http://mvnrepository.com/artifact/</url>
-    </repository>
-  </repositories>
 
-  <!-- TODO This resources block doesn't seem to do anything? -->
-  <build>
-    <resources>
-      <resource>
-        <directory>config</directory>
-        <filtering>true</filtering>
-      </resource>
-    </resources>
-  </build>
+  <dependencies>
+
+    <dependency>
+      <groupId>org.powertac</groupId>
+      <artifactId>server-interface</artifactId>
+      <version>${powertac.version}</version>
+    </dependency>
+
+  </dependencies>
+
 
   <profiles>
+
+
     <!-- Command-line setup -->
+
     <profile>
       <id>cli</id>
+
       <dependencies>
         <dependency>
           <groupId>org.powertac</groupId>
@@ -65,6 +51,13 @@
           <version>${powertac.version}</version>
         </dependency>
       </dependencies>
+
+      <properties>
+        <maven-exec.flags>-server -Xmx1024m -Dserver.pomId=${project.parent.version} -classpath %classpath</maven-exec.flags>
+        <maven-exec.class>org.powertac.server.PowerTacServer</maven-exec.class>
+        <maven-exec.args />
+      </properties>
+
       <build>
         <finalName>run-cli</finalName>
         <defaultGoal>exec:exec</defaultGoal>
@@ -77,26 +70,18 @@
           <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>exec-maven-plugin</artifactId>
-            <version>${maven-exec.version}</version>
-            <executions>
-              <execution>
-                <goals>
-                   <goal>exec</goal>
-                </goals>
-              </execution>
-            </executions>
-            <configuration>
-              <executable>java</executable>
-              <commandlineArgs>-server -Xmx1024m -Dserver.pomId=${project.parent.version} -classpath %classpath org.powertac.server.PowerTacServer ${exec.args}</commandlineArgs>
-            </configuration>
           </plugin>
         </plugins>
       </build>
+
     </profile>
 
+
     <!-- Web visualizer setup -->
+
     <profile>
       <id>web</id>
+
       <dependencies>
         <dependency>
           <groupId>org.powertac</groupId>
@@ -115,17 +100,14 @@
           <version>${powertac.version}</version>
           <type>pom</type>
         </dependency>
-        <!-- <dependency>
-          <groupId>org.eclipse.jetty</groupId>
-          <artifactId>jetty-server</artifactId>
-          <version>${jettyVersion}</version>
-        </dependency> -->
       </dependencies>
 
       <build>
         <finalName>run-web</finalName>
         <defaultGoal>package jetty:run</defaultGoal>
+
         <plugins>
+
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-dependency-plugin</artifactId>
@@ -179,13 +161,18 @@
               </webAppSourceDirectory>
             </configuration>
           </plugin>
+
         </plugins>
+
       </build>
+
     </profile>
+
 
     <!-- Web visualizer2 setup -->
     <profile>
       <id>web2</id>
+
       <dependencies>
         <dependency>
           <groupId>org.powertac</groupId>
@@ -196,10 +183,18 @@
         </dependency>
       </dependencies>
 
+      <properties>
+        <maven-exec.flags>-server -Xmx1024m -Dserver.pomId=${project.parent.version} -classpath %classpath</maven-exec.flags>
+        <maven-exec.class>org.powertac.server.PowerTacServer</maven-exec.class>
+        <maven-exec.args></maven-exec.args>
+      </properties>
+
       <build>
         <finalName>run-web2</finalName>
         <defaultGoal>package exec:exec</defaultGoal>
+
         <plugins>
+
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-dependency-plugin</artifactId>
@@ -232,6 +227,7 @@
               </execution>
             </executions>
           </plugin>
+
           <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>exec-maven-plugin</artifactId>
@@ -241,9 +237,20 @@
               <commandlineArgs>-Dserver.pomId=${project.parent.version} -jar ${project.build.directory}/visualizer2/visualizer2-${powertac.version}.war</commandlineArgs>
             </configuration>
           </plugin>
+
         </plugins>
+
       </build>
+
     </profile>
+
   </profiles>
+
+
+  <scm>
+    <connection>scm:git:git//github.com/powertac/auctioneer.git</connection>
+    <developerConnection>scm:git:git@github.com:powertac/auctioneer.git</developerConnection>
+    <url>https://github.com/powertac/auctioneer/</url>
+  </scm>
 
 </project>
