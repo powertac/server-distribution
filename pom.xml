@@ -25,16 +25,6 @@
   </properties>
 
 
-  <dependencies>
-
-    <dependency>
-      <groupId>org.powertac</groupId>
-      <artifactId>server-interface</artifactId>
-      <version>${powertac.version}</version>
-    </dependency>
-
-  </dependencies>
-
   <!-- Sonatype OSS repo for resolving snapshot dependencies -->
   <repositories>
     <repository>
@@ -42,7 +32,8 @@
       <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
     </repository>
   </repositories>
-  
+
+
   <profiles>
 
 
@@ -59,12 +50,6 @@
         </dependency>
       </dependencies>
 
-      <properties>
-        <maven-exec.flags>-server -Xmx1024m -Dserver.pomId=${project.parent.version} -classpath %classpath</maven-exec.flags>
-        <maven-exec.class>org.powertac.server.PowerTacServer</maven-exec.class>
-        <maven-exec.args />
-      </properties>
-
       <build>
         <finalName>run-cli</finalName>
         <defaultGoal>exec:exec</defaultGoal>
@@ -77,6 +62,17 @@
           <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>exec-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <executable>java</executable>
+              <commandlineArgs>-server -Xmx1024m -Dserver.pomId=${project.parent.version} -classpath %classpath org.powertac.server.PowerTacServer ${exec.args}</commandlineArgs>
+            </configuration>
           </plugin>
         </plugins>
       </build>
@@ -214,12 +210,6 @@
                   <goal>copy</goal>
                 </goals>
                 <configuration>
-                  <outputDirectory>
-                    ${project.build.directory}/visualizer2
-                  </outputDirectory>
-                  <destFileName>
-                    visualizer2-${powertac.version}.war
-                  </destFileName>
                   <overWriteSnapshots>true</overWriteSnapshots>
                   <artifactItems>
                     <artifactItem>
@@ -228,6 +218,12 @@
                       <version>${powertac.version}</version>
                       <type>war</type>
                       <overWrite>true</overWrite>
+                      <outputDirectory>
+                        ${project.build.directory}/visualizer2
+                      </outputDirectory>
+                      <destFileName>
+                        visualizer2-${powertac.version}.war
+                      </destFileName>
                     </artifactItem>
                   </artifactItems>
                 </configuration>
@@ -238,7 +234,13 @@
           <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>exec-maven-plugin</artifactId>
-            <version>${maven-exec.version}</version>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+              </execution>
+            </executions>
             <configuration>
               <executable>java</executable>
               <commandlineArgs>-Dserver.pomId=${project.parent.version} -jar ${project.build.directory}/visualizer2/visualizer2-${powertac.version}.war</commandlineArgs>
@@ -255,9 +257,9 @@
 
 
   <scm>
-    <connection>scm:git:git//github.com/powertac/auctioneer.git</connection>
-    <developerConnection>scm:git:git@github.com:powertac/auctioneer.git</developerConnection>
-    <url>https://github.com/powertac/auctioneer/</url>
+    <connection>scm:git:git//github.com/powertac/server-distribution.git</connection>
+    <developerConnection>scm:git:git@github.com:powertac/server-distribution.git</developerConnection>
+    <url>https://github.com/powertac/server-distribution/</url>
   </scm>
 
 </project>
