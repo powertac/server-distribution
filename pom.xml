@@ -266,9 +266,9 @@
 
 
   <scm>
-    <connection>scm:git:git//github.com/powertac/auctioneer.git</connection>
-    <developerConnection>scm:git:git@github.com:powertac/auctioneer.git</developerConnection>
-    <url>https://github.com/powertac/auctioneer/</url>
+    <connection>scm:git:git//github.com/powertac/server-distribution.git</connection>
+    <developerConnection>scm:git:git@github.com:powertac/server-distribution.git</developerConnection>
+    <url>https://github.com/powertac/server-distribution/</url>
   </scm>
 
 </project>
