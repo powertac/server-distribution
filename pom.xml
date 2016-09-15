@@ -25,16 +25,6 @@
   </properties>
 
 
-  <dependencies>
-
-    <dependency>
-      <groupId>org.powertac</groupId>
-      <artifactId>server-interface</artifactId>
-      <version>${powertac.version}</version>
-    </dependency>
-
-  </dependencies>
-
   <!-- Sonatype OSS repo for resolving snapshot dependencies -->
   <repositories>
     <repository>
@@ -42,7 +32,8 @@
       <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
     </repository>
   </repositories>
-  
+
+
   <profiles>
 
 
