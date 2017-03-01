@@ -85,26 +85,6 @@
     <profile>
       <id>web</id>
 
-      <dependencies>
-        <dependency>
-          <groupId>org.powertac</groupId>
-          <artifactId>server-main</artifactId>
-          <version>${powertac.version}</version>
-        </dependency>
-        <dependency>
-          <groupId>org.powertac</groupId>
-          <artifactId>visualizer</artifactId>
-          <version>${powertac.version}</version>
-          <type>war</type>
-        </dependency>
-        <dependency>
-          <groupId>org.powertac</groupId>
-          <artifactId>webapp-dependencies</artifactId>
-          <version>${powertac.version}</version>
-          <type>pom</type>
-        </dependency>
-      </dependencies>
-
       <build>
         <finalName>run-web</finalName>
         <defaultGoal>package jetty:run</defaultGoal>
