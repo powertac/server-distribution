@@ -22,6 +22,7 @@
 
   <properties>
     <jetty.version>9.3.11.v20160721</jetty.version>
+    <syst.args></syst.args>
   </properties>
 
   
@@ -69,7 +70,7 @@
             </executions>
             <configuration>
               <executable>java</executable>
-              <commandlineArgs>-server -Xmx1024m -Dserver.pomId=${project.parent.version} -classpath %classpath org.powertac.server.PowerTacServer ${exec.args}</commandlineArgs>
+              <commandlineArgs>-server -Xmx1024m -Dserver.pomId=${project.parent.version} -classpath %classpath ${syst.args} org.powertac.server.PowerTacServer ${exec.args}</commandlineArgs>
             </configuration>
           </plugin>
         </plugins>
