@@ -221,7 +221,7 @@
             </executions>
             <configuration>
               <executable>java</executable>
-              <commandlineArgs>-Dserver.pomId=${project.parent.version} -jar ${project.build.directory}/visualizer2/visualizer2-${powertac-server.version}.war</commandlineArgs>
+              <commandlineArgs>-Dserver.pomId=${project.parent.version} ${syst.args} -jar ${project.build.directory}/visualizer2/visualizer2-${powertac-server.version}.war</commandlineArgs>
             </configuration>
           </plugin>
 
