@@ -15,10 +15,9 @@
   <parent>
     <groupId>org.powertac</groupId>
     <artifactId>powertac-server</artifactId>
-    <version>1.4.2</version>
+    <version>1.4.3-SNAPSHOT</version>
     <relativePath />
   </parent>
-
 
   <properties>
     <jetty.version>9.3.11.v20160721</jetty.version>
@@ -45,7 +44,7 @@
         <dependency>
           <groupId>org.powertac</groupId>
           <artifactId>server-main</artifactId>
-          <version>1.4.2</version>
+          <version>${powertac-server.version}</version>
         </dependency>
       </dependencies>
 
@@ -116,7 +115,7 @@
                     <artifactItem>
                       <groupId>org.powertac</groupId>
                       <artifactId>visualizer</artifactId>
-                      <version>1.4.2</version>
+                      <version>${powertac-server.version}</version>
                       <type>war</type>
                       <overWrite>true</overWrite>
                     </artifactItem>
@@ -159,7 +158,7 @@
         <dependency>
           <groupId>org.powertac</groupId>
           <artifactId>visualizer2</artifactId>
-          <version>1.4.2</version>
+          <version>${powertac-server.version}</version>
           <type>war</type>
         </dependency>
       </dependencies>
@@ -193,14 +192,14 @@
                     <artifactItem>
                       <groupId>org.powertac</groupId>
                       <artifactId>visualizer2</artifactId>
-                      <version>1.4.2</version>
+                      <version>${powertac-server.version}</version>
                       <type>war</type>
                       <overWrite>true</overWrite>
                       <outputDirectory>
                         ${project.build.directory}/visualizer2
                       </outputDirectory>
                       <destFileName>
-                        visualizer2-1.4.2.war
+                        visualizer2-${powertac-server.version}.war
                       </destFileName>
                     </artifactItem>
                   </artifactItems>
@@ -221,7 +220,7 @@
             </executions>
             <configuration>
               <executable>java</executable>
-              <commandlineArgs>-Dserver.pomId=${project.parent.version} ${syst.args} -jar ${project.build.directory}/visualizer2/visualizer2-1.4.2.war</commandlineArgs>
+              <commandlineArgs>-Dserver.pomId=${project.parent.version} ${syst.args} -jar ${project.build.directory}/visualizer2/visualizer2-${powertac-server.version}.war</commandlineArgs>
             </configuration>
           </plugin>
 
