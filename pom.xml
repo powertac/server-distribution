@@ -15,12 +15,12 @@
   <parent>
     <groupId>org.powertac</groupId>
     <artifactId>powertac-server</artifactId>
-    <version>1.4.3</version>
+    <version>1.5.0-SNAPSHOT</version>
     <relativePath />
   </parent>
 
   <properties>
-    <powertac-server.version>1.4.3</powertac-server.version>
+    <powertac-server.version>1.5.0-SNAPSHOT</powertac-server.version>
     <jetty.version>9.3.11.v20160721</jetty.version>
     <syst.args></syst.args>
   </properties>
@@ -74,78 +74,6 @@
             </configuration>
           </plugin>
         </plugins>
-      </build>
-
-    </profile>
-
-
-    <!-- Web visualizer setup -->
-
-    <profile>
-      <id>web</id>
-
-      <build>
-        <finalName>run-web</finalName>
-        <defaultGoal>package jetty:run</defaultGoal>
-
-        <plugins>
-
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-dependency-plugin</artifactId>
-            <version>${maven-dependency.version}</version>
-            <executions>
-              <execution>
-                <id>unpack-war</id>
-                <phase>package</phase>
-                <goals>
-                  <goal>unpack</goal>
-                </goals>
-                <configuration>
-                  <systemProperties>
-                    <systemProperty>
-                      <name>server.pomId</name>
-                      <value>${project.parent.version}</value>
-                    </systemProperty>
-                  </systemProperties>
-                  <outputDirectory>
-                    ${project.build.directory}/visualizer
-                  </outputDirectory>
-                  <overWriteSnapshots>true</overWriteSnapshots>
-                  <artifactItems>
-                    <artifactItem>
-                      <groupId>org.powertac</groupId>
-                      <artifactId>visualizer</artifactId>
-                      <version>${powertac-server.version}</version>
-                      <type>war</type>
-                      <overWrite>true</overWrite>
-                    </artifactItem>
-                  </artifactItems>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-
-          <!-- jetty-maven-plugin -->
-          <plugin>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-maven-plugin</artifactId>
-            <version>${jetty.version}</version>
-            <configuration>
-              <webApp>
-                <contextPath>/visualizer</contextPath>
-              </webApp>
-              <classesDirectory>
-                ${project.build.directory}/visualizer/WEB-INF/classes
-              </classesDirectory>
-              <webAppSourceDirectory>
-                ${project.build.directory}/visualizer
-              </webAppSourceDirectory>
-            </configuration>
-          </plugin>
-
-        </plugins>
-
       </build>
 
     </profile>
