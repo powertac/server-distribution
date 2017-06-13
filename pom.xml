@@ -15,12 +15,12 @@
   <parent>
     <groupId>org.powertac</groupId>
     <artifactId>powertac-server</artifactId>
-    <version>1.4.3</version>
+    <version>1.4.4-SNAPSHOT</version>
     <relativePath />
   </parent>
 
   <properties>
-    <powertac-server.version>1.4.3</powertac-server.version>
+    <powertac-server.version>1.4.4-SNAPSHOT</powertac-server.version>
     <jetty.version>9.3.11.v20160721</jetty.version>
     <syst.args></syst.args>
   </properties>
