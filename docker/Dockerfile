@@ -14,7 +14,10 @@ COPY init.sh ./
 #download the server-distribution from github
 RUN chmod +x init.sh && \
 	mkdir data && \ 
-	git clone https://github.com/powertac/server-distribution 
+	git clone https://github.com/powertac/server-distribution	
+#build once, so the downloading of the maven archives doesn't happen every time we instantiate a new docker container
+RUN cd server-distribution && \
+	mvn package:package -Pweb2	
 
 EXPOSE 8080 61616
 #and start it up with `mvn -Pweb2` as described in the docs on Github
