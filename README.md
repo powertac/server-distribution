@@ -54,29 +54,16 @@ not directly supported by command-line options, you will need to edit
 the sample server configuration file given in
 `config/server.properties`, and then specify it as the argument to the `--config` option.
 
-To run the server under control of the visualizer, the command is
-simply
-
-```
-  mvn -Pweb
-```
-Once it is running (it will print '[INFO] Started Jetty Server'),
-browse to `http://localhost:8080/visualizer` and navigate to the
-Competition Control page. There you will see a web form that allows
-you to fill in the same options accepted by the cli version. Once a
-sim session is running, the Game Status message will change to
-"Running", and you can then navigate to the Game View. Note that it is
-not necessary to shut down the web server (which you do by aborting
-the maven process with Control-C) between sessions.
-
 To run the server under control of the new visualizer2, the command is
 
-
 ```
-  mvn -Pweb2
+  mvn -Pweb2 [-Dexec.args='options']
 ```
 
-Please take note of some changes, beyond the visible, when using the -Pweb2 profile.
+Where options can include
+* `--application.timeslotPause=nnn` slows down the pace of replay when using the visualizer to view an existing game through its state log, to allow you to inspect and interact with it while it's running. The `nnn` value is the time in msec to pause between timeslots. Values less than about 800 may not give consistent results when viewing games with larger numbers of brokers.
+
+Please take note of file locations when using the -Pweb2 profile.
 
 Out of the box, two accounts are created: `admin` and `user`. The passwords are 
 initially `admin` and `user`, respectively. You may want to change that when
@@ -92,7 +79,7 @@ Refer to the README.md of the visualizer2 for more information.
 Configuration
 -------------
 
-Three server-configuration files are provided as examples; all can be used by specifying them as the value of the --config option, or by filling in their names in the Server-config field on the GUI. The config `short-game.props` runs a very short simulation session, about 4 days. The config `2week-game.props` runs a sim slightly longer than 2 weeks, enough to see two cycles of peak-demand assessment. The config `pause.props` is a roughly 4-day session that allows brokers to pause the server.
+Three server-configuration files are provided as examples; all can be used by specifying them as the value of the --config option, or by filling in their names in the Server-config field on the GUI. The config `short-game.props` runs a very short simulation session, about 4 days. The config `2week-game.props` runs a sim slightly longer than 2 weeks, enough to see two cycles of peak-demand assessment. The config `pause.props` is a roughly 4-day session that allows brokers to pause the server. If you want to use these configs with the visualizer, you will need to copy them to files/admin/config.
 
 Access to code resources
 ------------------------
