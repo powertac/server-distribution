@@ -23,6 +23,7 @@
     <powertac-server.version>1.5.0-SNAPSHOT</powertac-server.version>
     <jetty.version>9.3.11.v20160721</jetty.version>
     <syst.args></syst.args>
+    <exec.args></exec.args>
   </properties>
 
   
@@ -54,7 +55,7 @@
         <defaultGoal>exec:exec</defaultGoal>
         <plugins>
         <!-- ... headless server execution ...
-             mvn -Pcli -Dexec.args="args"
+             mvn -Pcli -Dexec.args="cmd-line-args"
         ... should turn into
              mvn exec:exec -Dexec.executable="java" -Dexec.args="-server -Xmx1024m -classpath %classpath org.powertac.server.PowerTacServer cmd-line-args"
         -->
@@ -149,7 +150,7 @@
             </executions>
             <configuration>
               <executable>java</executable>
-              <commandlineArgs>-Dserver.pomId=${project.parent.version} ${syst.args} -jar ${project.build.directory}/visualizer2/visualizer2-${powertac-server.version}.war</commandlineArgs>
+              <commandlineArgs>-Dserver.pomId=${project.parent.version} ${syst.args} -jar ${project.build.directory}/visualizer2/visualizer2-${powertac-server.version}.war ${exec.args}</commandlineArgs>
             </configuration>
           </plugin>
 
