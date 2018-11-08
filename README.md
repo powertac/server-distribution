@@ -81,7 +81,7 @@ Refer to the README.md of the visualizer2 for more information.
 
 If you have just upgraded and are having trouble logging into the visualizer,
 such as seeing a "500 server error" instead of the usual page, please try
-to delete files/* and clear out the localhost cookies of your browser.
+to delete files/system and clear out the localhost cookies of your browser.
 
 
 Configuration
