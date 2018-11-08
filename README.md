@@ -63,6 +63,10 @@ To run the server under control of the new visualizer2, the command is
 Where options can include
 * `--application.timeslotPause=nnn` slows down the pace of replay when using the visualizer to view an existing game through its state log, to allow you to inspect and interact with it while it's running. The `nnn` value is the time in msec to pause between timeslots. Values less than about 800 may not give consistent results when viewing games with larger numbers of brokers.
 
+Shortly after you see the JHIPSTER logo in the console, you can point a browser
+at localhost:8080 (assuming you haven't changed the port configuration) to get
+to the UI.
+
 Please take note of file locations when using the -Pweb2 profile.
 
 Out of the box, two accounts are created: `admin` and `user`. The passwords are 
@@ -74,6 +78,10 @@ them. To account for this, the log files are now written to user-specific
 directories, e.g. "files/admin/log".
 
 Refer to the README.md of the visualizer2 for more information.
+
+If you have just upgraded and are having trouble logging into the visualizer,
+such as seeing a "500 server error" instead of the usual page, please try
+to delete files/* and clear out the localhost cookies of your browser.
 
 
 Configuration
