@@ -3,16 +3,16 @@ server-distribution
 
 Distribution package for the Power TAC simulation server
 
-Welcome to the current 1.5.0-SNAPSHOT version of the Power TAC simulation server. This is a reasonably stable development snapshot containing the server and a version of the game visualizer that works in "development" mode, including a simple control panel that allows you to set up and run bootstrap and competition sessions. There is a compatible sample broker distributed separately. This release is intended to support broker development and simple experiments.
+Welcome to the current 1.6.0-SNAPSHOT version of the Power TAC simulation server. This is a reasonably stable development snapshot containing the server and a version of the game visualizer that works in "development" mode, including a simple control panel that allows you to set up and run bootstrap and competition sessions. There is a compatible sample broker distributed separately. This release is intended to support broker development and simple experiments.
 
 This version requires an installation of the Java jdk 1.8. A jre installation will not work. Release notes are available at http://www.powertac.org/wiki/index.php/Getting_Started.
 
-Javadocs are available at http://tac04.cs.umn.edu:8080/job/powertac-server/ws/target/site/api/html/index.html.
+Javadocs are available at https://powertac.github.io/server/master/apidocs/.
 
 Running the server
 ------------------
 
-The server is distributed as a maven pom.xml file, and you must have Apache Maven installed to use it. The first time you run it, maven will download all the server components, as well as other libraries, from Maven Central (or from the Sonatype snapshot repository if you are running a snapshot version). This can take some time the first time you start the server.
+The server is distributed as a maven pom.xml file, and you must have Apache Maven 3.5.0 or later installed to use it. The first time you run it, maven will download all the server components, as well as other libraries, from Maven Central (or from the Sonatype snapshot repository if you are running a snapshot version). This can take some time the first time you start the server.
 
 Before you run the server, note that it runs in two different modes:
 * in bootstrap mode, only the "default" broker is active, and all customers are subscribed to its simple production and consumption tariffs. The bootstrap period is typically 360 timeslots (15 days), and data from the last 14 days is collected and used to "seed" a normal simulation run.
@@ -80,8 +80,7 @@ directories, e.g. "files/admin/log".
 Refer to the README.md of the visualizer2 for more information.
 
 If you have just upgraded and are having trouble logging into the visualizer,
-such as seeing a "500 server error" instead of the usual page, please try
-to delete files/system and clear out the localhost cookies of your browser.
+such as seeing a "500 server error" instead of the usual page, you may try to recover by deleting files/system and clearing out the localhost cookies from your browser.
 
 
 Configuration
