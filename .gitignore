@@ -1,5 +1,6 @@
 target/
 log/
+files/
 
 # Eclipse artifacts
 .project
@@ -10,3 +11,4 @@ log/
 
 # Boot records
 boot*.xml
+i*.xml
