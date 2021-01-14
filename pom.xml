@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
 
@@ -15,15 +13,15 @@
   <parent>
     <groupId>org.powertac</groupId>
     <artifactId>powertac-server</artifactId>
-    <version>1.7.0-SNAPSHOT</version>
+    <version>1.7.1</version>
     <relativePath />
   </parent>
 
   <properties>
     <powertac-server.version>1.7.0-SNAPSHOT</powertac-server.version>
     <jetty.version>9.3.11.v20160721</jetty.version>
-    <syst.args></syst.args>
-    <exec.args></exec.args>
+    <syst.args />
+    <exec.args />
   </properties>
 
   
@@ -96,7 +94,7 @@
       <properties>
         <maven-exec.flags>-server -Xmx1024m -Dserver.pomId=${project.parent.version} -classpath %classpath</maven-exec.flags>
         <maven-exec.class>org.powertac.server.PowerTacServer</maven-exec.class>
-        <maven-exec.args></maven-exec.args>
+        <maven-exec.args />
       </properties>
 
       <build>
@@ -167,6 +165,7 @@
     <connection>scm:git:git//github.com/powertac/server-distribution.git</connection>
     <developerConnection>scm:git:git@github.com:powertac/server-distribution.git</developerConnection>
     <url>https://github.com/powertac/server-distribution/</url>
+    <tag>server-distribution-1.7.1</tag>
   </scm>
 
 </project>
