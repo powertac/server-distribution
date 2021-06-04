@@ -1,0 +1,14 @@
+# 1.2 sec/timeslot
+common.competition.simulationTimeslotSeconds = 1.2
+common.competition.minimumTimeslotCount = 340
+common.competition.expectedTimeslotCount = 350
+#server.visualizerProxyService.remoteVisualizer = true
+#server.visualizerProxyService.visualizerQueueName = remote-visualizer
+server.logService.abbreviateClassnames = true
+server.competitionControlService.loginTimeout = 30000
+#factoredcustomer.config.allocationDetailsLogging = true
+genco.cpGenco.coefficients = 0.006, 0.02, 14.0
+genco.cpGenco.ecThreshold = 18.0
+genco.cpGenco.ecSlope = 1200.0
+genco.cpGenco.ehThreshold = 10.0
+genco.cpGenco.ehSlope = 400.0
