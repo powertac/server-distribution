@@ -3,16 +3,16 @@ server-distribution
 
 Distribution package for the Power TAC simulation server
 
-Welcome to the current 1.8.0-SNAPSHOT version of the Power TAC simulation server. This is a reasonably stable development snapshot containing the server and a version of the game visualizer that works in "development" mode, including a simple control panel that allows you to set up and run bootstrap and competition sessions. There is a compatible sample broker distributed separately. This release is intended to support broker development and simple experiments.
+Welcome to the current 1.10.0-SNAPSHOT version of the Power TAC simulation server. This is a reasonably stable development snapshot of the server. There is a compatible sample broker distributed separately. This release is intended to support broker development and the new experiment manager.
 
-This version requires an installation of Java 11 jdk. A jre installation will not work. Release notes are available at http://www.powertac.org/wiki/index.php/Getting_Started.
+This version requires an installation of Java 21 jdk. A jre installation will not work. Release notes are (no longer) available at http://www.powertac.org/wiki/index.php/Getting_Started.
 
 Javadocs are available at https://powertac.github.io/server/master/apidocs/.
 
 Running the server
 ------------------
 
-The server is distributed as a maven pom.xml file, and you must have Apache Maven 3.5.0 or later installed to use it. The first time you run it, maven will download all the server components, as well as other libraries, from Maven Central (or from the Sonatype snapshot repository if you are running a snapshot version). This can take some time the first time you start the server.
+The server is distributed as a maven pom.xml file, and you must have Apache Maven 3.9.0 or later installed to use it. The first time you run it, maven will download all the server components, as well as other libraries, from Maven Central (or from the Sonatype snapshot repository if you are running a snapshot version). This can take some time the first time you start the server.
 
 Before you run the server, note that it runs in two different modes:
 * in bootstrap mode, only the "default" broker is active, and all customers are subscribed to its simple production and consumption tariffs. The bootstrap period is typically 360 timeslots (15 days), and data from the last 14 days is collected and used to "seed" a normal simulation run.
@@ -80,6 +80,15 @@ Refer to the README.md of the visualizer2 for more information.
 If you have just upgraded and are having trouble logging into the visualizer,
 such as seeing a "500 server error" instead of the usual page, you may try to recover by deleting files/system and clearing out the localhost cookies from your browser.
 
+Building and running the server as a single jar file
+----------------------------------------------------
+
+To create the jar file, first clean and install powertac-core and powertac-server.
+Then build the jar using
+
+     mvn -Ppackage clean package spring-boot:repackage
+
+Finally, run the server with the run-server script, using the options outlined above..
 
 Configuration
 -------------

@@ -1,0 +1,4 @@
+#!/bin/bash
+# Runs the packaged jar
+
+java --add-opens java.base/java.util=ALL-UNNAMED -jar target/powertac-server.jar $@
