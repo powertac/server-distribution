@@ -118,7 +118,7 @@
             </executions>
             <configuration>
               <executable>java</executable>
-              <commandlineArgs>-server -Xmx2048m -Dserver.pomId=${project.parent.version} -classpath %classpath ${syst.args} org.powertac.server.PowerTacServer ${exec.args}</commandlineArgs>
+              <commandlineArgs>-server -Xmx2048m --add-opens java.base/java.util=ALL-UNNAMED -Dserver.pomId=${project.parent.version} -classpath %classpath ${syst.args} org.powertac.server.PowerTacServer ${exec.args}</commandlineArgs>
             </configuration>
 	  </plugin>
 	</plugins>
@@ -157,7 +157,7 @@
             </executions>
             <configuration>
               <executable>java</executable>
-              <commandlineArgs>-server -Xmx2048m -Dserver.pomId=${project.parent.version} -classpath %classpath ${syst.args} org.powertac.server.PowerTacServer ${exec.args}</commandlineArgs>
+              <commandlineArgs>-server --add-opens java.base/java.util=ALL-UNNAMED -Dserver.pomId=${project.parent.version} -classpath %classpath ${syst.args} org.powertac.server.PowerTacServer ${exec.args}</commandlineArgs>
             </configuration>
           </plugin>
         </plugins>

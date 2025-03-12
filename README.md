@@ -52,33 +52,7 @@ not directly supported by command-line options, you will need to edit
 the sample server configuration file given in
 `config/server.properties`, and then specify it as the argument to the `--config` option.
 
-To run the server under control of the new visualizer2, the command is
-
-```
-  mvn -Pweb2 [-Dexec.args='options']
-```
-
-Where options can include
-* `--application.timeslotPause=nnn` slows down the pace of replay when using the visualizer to view an existing game through its state log, to allow you to inspect and interact with it while it's running. The `nnn` value is the time in msec to pause between timeslots. Values less than about 800 may not give consistent results when viewing games with larger numbers of brokers.
-
-Shortly after you see the JHIPSTER logo in the console, you can point a browser
-at localhost:8080 (assuming you haven't changed the port configuration) to get
-to the UI.
-
-Please take note of file locations when using the -Pweb2 profile.
-
-Out of the box, two accounts are created: `admin` and `user`. The passwords are 
-initially `admin` and `user`, respectively. You may want to change that when
-you're up and running.
-
-In the new visualizer, games are owned by the user who logged in to create/start
-them. To account for this, the log files are now written to user-specific
-directories, e.g. "files/admin/log".
-
-Refer to the README.md of the visualizer2 for more information.
-
-If you have just upgraded and are having trouble logging into the visualizer,
-such as seeing a "500 server error" instead of the usual page, you may try to recover by deleting files/system and clearing out the localhost cookies from your browser.
+Running the server under control of  visualizer2 is no longer supported.
 
 Building and running the server as a single jar file
 ----------------------------------------------------
