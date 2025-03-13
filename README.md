@@ -18,9 +18,9 @@ Before you run the server, note that it runs in two different modes:
 * in bootstrap mode, only the "default" broker is active, and all customers are subscribed to its simple production and consumption tariffs. The bootstrap period is typically 360 timeslots (15 days), and data from the last 14 days is collected and used to "seed" a normal simulation run.
 * in sim mode, competing brokers are allowed to log in. Before the sim starts, the bootstrap dataset is broadcast to all brokers to permit them to seed their models, such as customer usage profiles and wholesale market price models. The simulation then starts at a point in simulated time immediately following the end of the bootstrap period. Many sims can be run with the same bootstrap dataset.
 
-The server can be run from the command line (the "cli" option), and from the web interface (the "web" option). Both options accept the same input settings, except that the web option does not support the Tournament Manager.
+The server can be run from the command line (the "cli" option), or a single jar file can be produced (in the target directory) and run from the command line. A short shell script is provided that runs the server from the jar file. Note that the the web interface (the "web" option) is no longer supported. Both options accept the same input settings.
 
-Configuration is by command-line options or the equivalent data in a web form, and by a configuration file. Note that a number of these options refer to the Tournament Manager, which is not yet released. See https://github.com/powertac/powertac-server/wiki/Tournament-Scheduler for background on this.
+Configuration is by command-line options and by a configuration file. Note that a number of these options refer to the Tournament Manager, which is not yet released. See https://github.com/powertac/powertac-server/wiki/Tournament-Scheduler for background on this.
 
 The command line options depend on the type of session you want to run. To run a bootstrap session, the command is
 
@@ -60,9 +60,10 @@ Building and running the server as a single jar file
 To create the jar file, first clean and install powertac-core and powertac-server.
 Then build the jar using
 
-     mvn -Ppackage clean package spring-boot:repackage
-
-Finally, run the server with the run-server script, using the options outlined above..
+```
+mvn -Ppackage clean package spring-boot:repackage
+```
+Finally, run the server with the run-server script, using the options outlined above.
 
 Configuration
 -------------
@@ -88,4 +89,4 @@ If you believe you have found a bug and can describe it with some degree of accu
 
 Please let us know what you think of the Power TAC system, and how we can improve our software and processes.
 
-John Collins, Wolf Ketter, and the Power TAC development team: Jurica Babic, Govert Buijs, Antonios Chrysopoulos, Mathijs de Weerdt, Josh Edeen, Ryan Finneman, Erik Kemperman, Frederik Milkau, Nguyen Nguyen, Erik Onarheim, Shashank Pande, Markus Peters, Vedran Podobnik, Kailash Ramanathan, Prashant Reddy, Andreas Symeonidis, and Konstantina Valogianni
+John Collins, Wolf Ketter, and the Power TAC development team: Jurica Babic, Govert Buijs, Antonios Chrysopoulos, Mathijs de Weerdt, Josh Edeen, Ryan Finneman, William Hulin, Erik Kemperman, Frederik Milkau, Nguyen Nguyen, Erik Onarheim, Shashank Pande, Markus Peters, Vedran Podobnik, Kailash Ramanathan, Prashant Reddy, Andreas Symeonidis, and Konstantina Valogianni
